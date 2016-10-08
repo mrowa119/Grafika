@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-public abstract class MyImage {
+public abstract class MyImage implements Processable{
 	// Rozdzielczosc
 	final int xRes = 500;
 	final int yRes = 1000;

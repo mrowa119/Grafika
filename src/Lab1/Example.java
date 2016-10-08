@@ -40,10 +40,8 @@ public class Example {
 				r = getRingIndex(d);
 
 				if (isFigure(r)) {
-					System.out.println("Fig");
 					setFigureColour(i, j);
 				} else {
-					System.out.println("Bac");
 					setBackgroudnColor(i, j);
 				}
 			}

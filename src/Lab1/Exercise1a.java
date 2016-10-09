@@ -1,6 +1,6 @@
 package Lab1;
 
-public class Exercise1a extends MyImage{
+public class Exercise1a extends MyImage implements Processable {
 
 	// Kolory
 	int figureColor = Tools.int2RGB(0, 0, 0);
@@ -10,18 +10,13 @@ public class Exercise1a extends MyImage{
 	final int ringWidth = 10;
 	final int gradientWidth = 60;
 
-	public void processImage() {
-		for (int i = 0; i < yRes; i++) {
-			for (int j = 0; j < xRes; j++) {
-				double radius;
+	@Override
+	public void processImage(int i, int j) {
+		double radius;
 
-				radius = getDistanceToCenter(i, j);
+		radius = getDistanceToCenter(i, j);
 
-				setColour(i, j, getRingColour(radius));
-			}
-		}
-		saveImage();
-
+		setColour(i, j, getRingColour(radius));
 	}
 
 	private void setColour(int i, int j, int color) {
@@ -67,6 +62,6 @@ public class Exercise1a extends MyImage{
 	}
 
 	public static void main(String[] args) {
-		new Exercise1a().processImage();
+		new Exercise1a().renderAndSave();
 	}
 }

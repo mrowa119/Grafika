@@ -14,40 +14,37 @@ public class Exercise1b extends MyImage {
 	int backgroundColor = Tools.int2RGB(255, 255, 255);
 
 	@Override
-	public void processImage() {
-		for (int i = 0; i < yRes; i++) {
-			for (int j = 0; j < xRes; j++) {
-				int distanceFromCenterX = Math.abs(xC - j);
-				int distanceFromCenterY = Math.abs(yC - i);
-				
-				if(distanceFromApsoluteCenterX(distanceFromCenterX)>distanceFromMiddleLine() && distanceFromApsoluteCenterY(distanceFromCenterY)>distanceFromMiddleLine()){
-					setColour(i, j, backgroundColor);
-				} else{
-					setColour(i, j, figureColor);
-				}
-			}
+	public void processImage(int i, int j) {
+		int distanceFromCenterX = Math.abs(xC - j);
+		int distanceFromCenterY = Math.abs(yC - i);
+
+		if (distanceFromApsoluteCenterX(distanceFromCenterX) > distanceFromMiddleLine()
+				&& distanceFromApsoluteCenterY(distanceFromCenterY) > distanceFromMiddleLine()) {
+			setColour(i, j, backgroundColor);
+		} else {
+			setColour(i, j, figureColor);
 		}
-		saveImage();
+
 	}
 
 	private int distanceFromMiddleLine() {
-		return lineWidth/2;
+		return lineWidth / 2;
 	}
 
 	private int distanceFromApsoluteCenterY(int distanceFromCenterY) {
-		return Math.abs(distanceFromCenterY%distanceBetweenMiddleOfLinesY-(distanceBetweenMiddleOfLinesY/2));
+		return Math.abs(distanceFromCenterY % distanceBetweenMiddleOfLinesY - (distanceBetweenMiddleOfLinesY / 2));
 	}
 
 	private int distanceFromApsoluteCenterX(int distanceFromCenterX) {
-		return Math.abs(distanceFromCenterX%distanceBetweenMiddleOfLinesX-(distanceBetweenMiddleOfLinesX/2));
+		return Math.abs(distanceFromCenterX % distanceBetweenMiddleOfLinesX - (distanceBetweenMiddleOfLinesX / 2));
 	}
-	
+
 	private void setColour(int i, int j, int color) {
 		image.setRGB(j, i, color);
 	}
 
 	public static void main(String[] args) {
-		new Exercise1b().processImage();
+		new Exercise1b().renderAndSave();
 	}
 
 }

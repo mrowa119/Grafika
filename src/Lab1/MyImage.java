@@ -38,7 +38,11 @@ public abstract class MyImage implements Processable{
 	}
 	
 	protected double getDistanceToCenter(int i, int j) {
-		return Math.sqrt(Math.pow((i - yC), 2) + Math.pow(j - xC, 2));
+		return getDistanceToPoint(i,j,xC,yC);
+	}
+	
+	protected double getDistanceToPoint(int i, int j, int x, int y) {
+		return Math.sqrt(Math.pow((i - y), 2) + Math.pow(j - x, 2));
 	}
 	
 	protected void renderAndSave() {

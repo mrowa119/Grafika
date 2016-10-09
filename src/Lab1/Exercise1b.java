@@ -10,8 +10,8 @@ public class Exercise1b extends MyImage {
 	final int distanceBetweenMiddleOfLinesY = 2 * lineWidth;
 
 	// Kolory
-	int figureColor = Tools.int2RGB(0, 0, 0);
-	int backgroundColor = Tools.int2RGB(255, 255, 255);
+	final int figureColor = Tools.int2RGB(0, 0, 0);
+	final int backgroundColor = Tools.int2RGB(255, 255, 255);
 
 	@Override
 	public void processImage(int i, int j) {
@@ -37,10 +37,6 @@ public class Exercise1b extends MyImage {
 
 	private int distanceFromApsoluteCenterX(int distanceFromCenterX) {
 		return Math.abs(distanceFromCenterX % distanceBetweenMiddleOfLinesX - (distanceBetweenMiddleOfLinesX / 2));
-	}
-
-	private void setColour(int i, int j, int color) {
-		image.setRGB(j, i, color);
 	}
 
 	public static void main(String[] args) {

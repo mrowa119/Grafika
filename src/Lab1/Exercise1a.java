@@ -19,9 +19,6 @@ public class Exercise1a extends MyImage implements Processable {
 		setColour(i, j, getRingColour(radius));
 	}
 
-	private void setColour(int i, int j, int color) {
-		image.setRGB(j, i, color);
-	}
 
 	private int getRingColour(double radius) {
 		int apsoluteRadius = (int) (radius % (2 * ringWidth + gradientWidth));

@@ -30,10 +30,6 @@ public class Example extends MyImage implements Processable {
 		setColour(i, j, backgroundColor);
 	}
 
-	private void setColour(int i, int j, int color) {
-		image.setRGB(j, i, color);
-	}
-
 	private void setFigureColour(int i, int j) {
 		setColour(i, j, figureColor);
 	}

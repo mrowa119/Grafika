@@ -9,7 +9,7 @@ import javax.imageio.ImageIO;
 public abstract class MyImage implements Processable{
 	// Rozdzielczosc
 	final int xRes = 500;
-	final int yRes = 1000;
+	final int yRes = 500;
 
 	// Wspó³rzêdne œrodka
 	final int xC = xRes / 2;
@@ -31,6 +31,10 @@ public abstract class MyImage implements Processable{
 		} catch (IOException e) {
 			System.out.println("Image cannot be stored");
 		}
+	}
+	
+	protected void setColour(int i, int j, int color) {
+		image.setRGB(j, i, color);
 	}
 	
 	protected double getDistanceToCenter(int i, int j) {

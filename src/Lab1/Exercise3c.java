@@ -12,7 +12,7 @@ public class Exercise3c extends MyImage implements Processable {
 	@Override
 	public void processImage(int i, int j) {
 		int distanceFromCenter = (int) getDistanceToCenter(i, j);
-		int numberOfRingsBefor = (int) Math.sqrt(distanceFromCenter*5);
+		int numberOfRingsBefor = (int) Math.sqrt(distanceFromCenter * 5);
 		
 		if (numberOfRingsBefor%2==0){
 			setColour(i, j, figureColor);

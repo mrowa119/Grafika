@@ -7,7 +7,7 @@ public abstract class LoadedTwoImageWithMask extends LoadedImage {
 
 	BufferedImage image2 = loadSecoundImage();
 
-	BufferedImage mask = new Exercise1b().render();
+	BufferedImage mask = new Exercise1a().render();
 
 	// Warotœci pliku wyjœciowego
 	final String inputFile2Name = "inputV2";

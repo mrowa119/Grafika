@@ -19,7 +19,7 @@ public abstract class LoadedImage implements Processable{
 	final int yC = yRes / 2;
 	
 	// Warotœci pliku wyjœciowego
-	final String inputFileName = "input2";
+	final String inputFileName = "input";
 	final String inputFileExtension = "jpg";
 	final String inputFileFormat = "jpeg";
 
@@ -38,8 +38,12 @@ public abstract class LoadedImage implements Processable{
 		}
 	}
 	
-	private BufferedImage loadImage() {
+	protected BufferedImage loadImage() {
 		File inputFile = new File(inputFileName + "." + inputFileExtension);
+		return loadImageFromFile(inputFile);
+	}
+
+	protected BufferedImage loadImageFromFile(File inputFile) {
 		try {
 			return ImageIO.read(inputFile);
 		} catch (IOException e) {

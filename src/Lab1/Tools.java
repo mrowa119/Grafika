@@ -2,7 +2,7 @@ package Lab1;
 
 public class Tools {
 	static int int2RGB(int red, int green, int blue) {
-		red = red % 256;
+		red %= 256;
 		green %= 256;
 		blue %= 256;
 		return (red << 16) + (green << 8) + blue;

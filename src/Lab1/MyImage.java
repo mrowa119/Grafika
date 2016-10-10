@@ -53,4 +53,13 @@ public abstract class MyImage implements Processable{
 		}
 		saveImage();
 	}
+	
+	protected BufferedImage render() {
+		for (int i = 0; i < yRes; i++) {
+			for (int j = 0; j < xRes; j++) {
+				processImage(i, j);
+			}
+		}
+		return image;
+	}
 }

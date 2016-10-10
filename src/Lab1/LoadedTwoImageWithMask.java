@@ -20,10 +20,10 @@ public abstract class LoadedTwoImageWithMask extends LoadedImage {
 	}
 
 	protected int getColour2(int i, int j) {
-		return image2.getRGB(j, i);
+		return image2.getRGB(j, i)  & 0x00FFFFFF;
 	}
 	
 	protected int getMaskColour(int i, int j) {
-		return Math.abs(mask.getRGB(j, i)+1);
+		return mask.getRGB(j, i)  & 0x00FFFFFF;
 	}
 }

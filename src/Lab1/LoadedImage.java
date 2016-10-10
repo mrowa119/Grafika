@@ -57,7 +57,7 @@ public abstract class LoadedImage implements Processable{
 	}
 	
 	protected int getColour(int i, int j){
-		return image.getRGB(j, i);
+		return image.getRGB(j, i)  & 0x00FFFFFF;
 	}
 	
 	protected double getDistanceToCenter(int i, int j) {

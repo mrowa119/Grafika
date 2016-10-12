@@ -7,7 +7,7 @@ public class Exercise2a extends LoadedImage implements Processable {
 	int backColor = Tools.int2RGB(255, 255, 255);
 
 	// Szerokosc pierscienia
-	final int ringWidth = 10;
+	final int ringWidth = 20;
 	final int gradientWidth = 60;
 
 	@Override
@@ -16,18 +16,20 @@ public class Exercise2a extends LoadedImage implements Processable {
 
 		radius = getDistanceToCenter(i, j);
 
-		setColour(i, j, getRingColour(radius,i, j));
+		setColour(i, j, getRingColour(radius, i, j));
 	}
 
-
 	private int getRingColour(double radius, int i, int j) {
-		int apsoluteRadius = (int) (radius % (2 * ringWidth + gradientWidth));
-		if (isFigure(apsoluteRadius)) {
+		int absoluteRadius = (int) (radius % (2 * (ringWidth + gradientWidth)));
+		if (isFigure(absoluteRadius)) {
 			return figureColor;
-		} else if (isBackround(apsoluteRadius)) {
+		} else if (isFirstGradiend(absoluteRadius)) {
+			int coursorPositionInGradient = absoluteRadius - ringWidth;
+			return getGradientFieldColour(gradientWidth - coursorPositionInGradient, getColour(i, j));
+		} else if (isBackround(absoluteRadius)) {
 			return getColour(i, j);
 		} else {
-			int coursorPositionInGradient = apsoluteRadius - 2 * ringWidth;
+			int coursorPositionInGradient = absoluteRadius - 2 * ringWidth - gradientWidth;
 			return getGradientFieldColour(coursorPositionInGradient, getColour(i, j));
 		}
 	}
@@ -50,12 +52,16 @@ public class Exercise2a extends LoadedImage implements Processable {
 		return Tools.int2RGB(gradientRed, gradientGreen, gradientBlue);
 	}
 
-	private boolean isBackround(int apsoluteRadius) {
-		return apsoluteRadius < 2 * ringWidth;
+	private boolean isFirstGradiend(int absoluteRadius) {
+		return absoluteRadius < (ringWidth + gradientWidth);
 	}
 
-	private boolean isFigure(int apsoluteRadius) {
-		return apsoluteRadius < ringWidth;
+	private boolean isBackround(int absoluteRadius) {
+		return absoluteRadius < (2 * ringWidth + gradientWidth);
+	}
+
+	private boolean isFigure(int absoluteRadius) {
+		return absoluteRadius < ringWidth;
 	}
 
 	public static void main(String[] args) {

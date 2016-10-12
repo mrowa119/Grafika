@@ -17,8 +17,8 @@ public class Exercise2b extends LoadedImage {
 		int distanceFromCenterX = Math.abs(xC - j);
 		int distanceFromCenterY = Math.abs(yC - i);
 
-		if (distanceFromApsoluteCenterX(distanceFromCenterX) > distanceFromMiddleLine()
-				&& distanceFromApsoluteCenterY(distanceFromCenterY) > distanceFromMiddleLine()) {
+		if (distanceFromAbsoluteCenterX(distanceFromCenterX) > distanceFromMiddleLine()
+				&& distanceFromAbsoluteCenterY(distanceFromCenterY) > distanceFromMiddleLine()) {
 			setColour(i, j, getColour(i, j));
 		} else {
 			setColour(i, j, figureColor);
@@ -30,11 +30,11 @@ public class Exercise2b extends LoadedImage {
 		return lineWidth / 2;
 	}
 
-	private int distanceFromApsoluteCenterY(int distanceFromCenterY) {
+	private int distanceFromAbsoluteCenterY(int distanceFromCenterY) {
 		return Math.abs(distanceFromCenterY % distanceBetweenMiddleOfLinesY - (distanceBetweenMiddleOfLinesY / 2));
 	}
 
-	private int distanceFromApsoluteCenterX(int distanceFromCenterX) {
+	private int distanceFromAbsoluteCenterX(int distanceFromCenterX) {
 		return Math.abs(distanceFromCenterX % distanceBetweenMiddleOfLinesX - (distanceBetweenMiddleOfLinesX / 2));
 	}
 

@@ -8,6 +8,7 @@ import javax.imageio.ImageIO;
 
 public abstract class LoadedImage implements Processable {
 
+	// Obraz t³o
 	BufferedImage image = loadImage();
 
 	// Rozdzielczosc

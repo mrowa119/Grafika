@@ -5,8 +5,10 @@ import java.io.File;
 
 public abstract class LoadedTwoImageWithMask extends LoadedImage {
 
+	// 2 obraz ktory nak³adamy na pierwszy
 	BufferedImage image2 = loadSecoundImage();
 
+	// Maska któr¹ ³¹czymy obrazy
 	BufferedImage mask = new Exercise1a().render();
 
 	// Warotœci pliku wyjœciowego

@@ -4,7 +4,6 @@ public class Exercise1a extends MyImage implements Processable {
 
 	// Kolory
 	int figureColor = Tools.int2RGB(0, 0, 0);
-	int figure2Color = Tools.int2RGB(0, 255, 0);
 	int backgroundColor = Tools.int2RGB(255, 255, 255);
 
 	// Szerokosc pierscienia
@@ -20,14 +19,13 @@ public class Exercise1a extends MyImage implements Processable {
 		setColour(i, j, getRingColour(radius));
 	}
 
-
 	private int getRingColour(double radius) {
-		int absoluteRadius = (int) (radius % ((2 * ringWidth + 2 * gradientWidth)));
+		int absoluteRadius = (int) (radius % (2 * (ringWidth + gradientWidth)));
 		if (isFigure(absoluteRadius)) {
 			return figureColor;
-		} else if (isFirstGradiend(absoluteRadius)){
+		} else if (isFirstGradiend(absoluteRadius)) {
 			int coursorPositionInGradient = absoluteRadius - ringWidth;
-			return getGradientFieldColour(gradientWidth-coursorPositionInGradient);
+			return getGradientFieldColour(gradientWidth - coursorPositionInGradient);
 		} else if (isBackround(absoluteRadius)) {
 			return backgroundColor;
 		} else {
@@ -35,8 +33,6 @@ public class Exercise1a extends MyImage implements Processable {
 			return getGradientFieldColour(coursorPositionInGradient);
 		}
 	}
-
-
 
 	private int getGradientFieldColour(int coursorPositionInGradient) {
 		int figureRed = Tools.RGB2red(figureColor);
@@ -55,7 +51,7 @@ public class Exercise1a extends MyImage implements Processable {
 
 		return Tools.int2RGB(gradientRed, gradientGreen, gradientBlue);
 	}
-	
+
 	private boolean isFirstGradiend(int absoluteRadius) {
 		return absoluteRadius < (ringWidth + gradientWidth);
 	}

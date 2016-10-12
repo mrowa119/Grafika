@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-public abstract class MyImage implements Processable{
+public abstract class MyImage implements Processable {
 	// Rozdzielczosc
 	final int xRes = 500;
 	final int yRes = 500;
@@ -32,19 +32,19 @@ public abstract class MyImage implements Processable{
 			System.out.println("Image cannot be stored");
 		}
 	}
-	
+
 	protected void setColour(int i, int j, int color) {
 		image.setRGB(j, i, color);
 	}
-	
+
 	protected double getDistanceToCenter(int i, int j) {
-		return getDistanceToPoint(i,j,xC,yC);
+		return getDistanceToPoint(i, j, xC, yC);
 	}
-	
+
 	protected double getDistanceToPoint(int i, int j, int x, int y) {
 		return Math.sqrt(Math.pow((i - y), 2) + Math.pow(j - x, 2));
 	}
-	
+
 	protected void renderAndSave() {
 		for (int i = 0; i < yRes; i++) {
 			for (int j = 0; j < xRes; j++) {
@@ -53,7 +53,7 @@ public abstract class MyImage implements Processable{
 		}
 		saveImage();
 	}
-	
+
 	protected BufferedImage render() {
 		for (int i = 0; i < yRes; i++) {
 			for (int j = 0; j < xRes; j++) {

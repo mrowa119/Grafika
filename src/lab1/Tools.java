@@ -1,4 +1,4 @@
-package Lab1;
+package lab1;
 
 public class Tools {
 	static int int2RGB(int red, int green, int blue) {

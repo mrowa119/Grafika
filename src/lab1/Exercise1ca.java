@@ -1,9 +1,10 @@
-package Lab1;
+package lab1;
 
-public class Exercise2ca extends LoadedImage implements Processable {
+public class Exercise1ca extends MyImage implements Processable {
 
 	// Kolory
 	final int figureColor = Tools.int2RGB(0, 0, 0);
+	final int backgroundColor = Tools.int2RGB(255, 255, 255);
 
 	// Rozmial pola
 	final int fieldSize = 100;
@@ -19,12 +20,12 @@ public class Exercise2ca extends LoadedImage implements Processable {
 		if ((horisontalElementDiffCount + verticalElementDiffCount) % 2 == 0) {
 			setColour(i, j, figureColor);
 		} else {
-			setColour(i, j, getColour(i, j));
+			setColour(i, j, backgroundColor);
 		}
 	}
 
 	public static void main(String[] args) {
-		new Exercise2ca().renderAndSave();
+		new Exercise1ca().renderAndSave();
 	}
 
 }

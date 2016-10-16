@@ -1,6 +1,6 @@
-package Lab1;
+package lab1;
 
-public class Exercise2b extends LoadedImage {
+public class Exercise1b extends MyImage {
 
 	// Szerokoœæ lini kratki
 	final int lineWidth = 50;
@@ -11,6 +11,7 @@ public class Exercise2b extends LoadedImage {
 
 	// Kolory
 	final int figureColor = Tools.int2RGB(0, 0, 0);
+	final int backgroundColor = Tools.int2RGB(255, 255, 255);
 
 	@Override
 	public void processImage(int i, int j) {
@@ -19,7 +20,7 @@ public class Exercise2b extends LoadedImage {
 
 		if (distanceFromAbsoluteCenterX(distanceFromCenterX) > distanceFromMiddleLine()
 				&& distanceFromAbsoluteCenterY(distanceFromCenterY) > distanceFromMiddleLine()) {
-			setColour(i, j, getColour(i, j));
+			setColour(i, j, backgroundColor);
 		} else {
 			setColour(i, j, figureColor);
 		}
@@ -39,7 +40,7 @@ public class Exercise2b extends LoadedImage {
 	}
 
 	public static void main(String[] args) {
-		new Exercise2b().renderAndSave();
+		new Exercise1b().renderAndSave();
 	}
 
 }

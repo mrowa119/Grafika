@@ -1,4 +1,4 @@
-package Lab1;
+package lab1;
 
 public class Exercise2a extends LoadedImage implements Processable {
 

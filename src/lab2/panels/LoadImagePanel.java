@@ -1,5 +1,7 @@
 package lab2.panels;
 
+import java.awt.GridLayout;
+
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
@@ -12,6 +14,7 @@ public class LoadImagePanel extends JPanel {
 
 	public LoadImagePanel() {
 		super();
+		setLayout(new GridLayout(1, 1));
 		add(new LoadImageButton());
 
 		Border centerBorder = BorderFactory.createTitledBorder("T³o");

@@ -1,5 +1,6 @@
 package lab2.panels;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 
 import javax.swing.JPanel;
@@ -11,5 +12,10 @@ public class MenuPanel extends JPanel {
 	public MenuPanel(){
 		super();
 		setBackground(Color.BLACK);
+		setLayout(new BorderLayout());
+		
+		add(new LoadImagePanel(), BorderLayout.NORTH);
+		//add(new ShapeListPanel(), BorderLayout.Center);
+//		add(new ShapeSettingsPanel(), BorderLayout.SOUTH);
 	}
 }

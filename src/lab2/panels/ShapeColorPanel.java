@@ -10,7 +10,7 @@ import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.border.Border;
 
-import lab2.buttons.acceptColourButton;
+import lab2.buttons.AcceptColourButton;
 
 public class ShapeColorPanel extends JPanel {
 
@@ -23,7 +23,7 @@ public class ShapeColorPanel extends JPanel {
 		JSpinner greenSpinner = addColour(colorPanel, "G:");
 		JSpinner blueSpinner = addColour(colorPanel, "B:");
 		add(colorPanel);
-		add(new acceptColourButton(redSpinner, greenSpinner, blueSpinner));
+		add(new AcceptColourButton(redSpinner, greenSpinner, blueSpinner));
 		
 		
 		Border centerBorder = BorderFactory.createTitledBorder("Kolor");

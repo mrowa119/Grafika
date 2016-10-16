@@ -3,7 +3,7 @@ package lab2.buttons;
 import javax.swing.JButton;
 import javax.swing.JSpinner;
 
-public class acceptColourButton extends JButton {
+public class AcceptColourButton extends JButton {
 
 	private static final long serialVersionUID = 7690089614652881027L;
 
@@ -11,7 +11,7 @@ public class acceptColourButton extends JButton {
 	private JSpinner greenSpinner;
 	private JSpinner blueSpinner;
 
-	public acceptColourButton(JSpinner redSpinner, JSpinner greenSpinner, JSpinner blueSpinner) {
+	public AcceptColourButton(JSpinner redSpinner, JSpinner greenSpinner, JSpinner blueSpinner) {
 		super("Akceptuj kolor");
 		this.redSpinner = redSpinner;
 		this.greenSpinner = greenSpinner;

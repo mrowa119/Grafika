@@ -17,10 +17,12 @@ public class ShapeColorPanel extends JPanel {
 	private static final long serialVersionUID = -2232773257402672519L;
 
 	public ShapeColorPanel() {
-		setLayout(new GridLayout(4,1));
-		JSpinner redSpinner = addColour(this, "R:");
-		JSpinner greenSpinner = addColour(this, "G:");
-		JSpinner blueSpinner = addColour(this, "B:");
+		setLayout(new GridLayout(2,1));
+		JPanel colorPanel = new JPanel(new FlowLayout());
+		JSpinner redSpinner = addColour(colorPanel, "R:");
+		JSpinner greenSpinner = addColour(colorPanel, "G:");
+		JSpinner blueSpinner = addColour(colorPanel, "B:");
+		add(colorPanel);
 		add(new acceptColourButton(redSpinner, greenSpinner, blueSpinner));
 		
 		

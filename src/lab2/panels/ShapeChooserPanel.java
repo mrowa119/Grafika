@@ -14,7 +14,7 @@ public class ShapeChooserPanel extends JPanel {
 
 	public ShapeChooserPanel() {
 		setLayout(new GridLayout(3, 1));
-		JRadioButton rectangle = new JRadioButton("Prostokont");
+		JRadioButton rectangle = new JRadioButton("Prostok¹t");
 		JRadioButton ellipse = new JRadioButton("Elipsa");
 		JRadioButton polygon = new JRadioButton("Wielok¹t");
 

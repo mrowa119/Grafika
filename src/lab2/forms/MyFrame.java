@@ -19,7 +19,7 @@ public class MyFrame extends JFrame {
 	public MyFrame() {
 		super("Zaznaczanie ");
 		setSize(MINIMUM_FRAME_WIDTH, MINIMUM_FEMAE_HEIGHT);
-		setMinimumSize(new Dimension(MINIMUM_FRAME_WIDTH, MINIMUM_FEMAE_HEIGHT));
+		setMinimumSize(new Dimension(350, 350));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setOnScreenCenter();
 		

@@ -1,9 +1,12 @@
 package lab2.forms;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
 import javax.swing.JFrame;
+
+import lab2.panels.MenuPanel;
 
 public class MyFrame extends JFrame {
 
@@ -19,7 +22,9 @@ public class MyFrame extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setOnScreenCenter();
 		
-		setLayout(null);
+		setLayout(new BorderLayout());
+		
+		add(new MenuPanel(), BorderLayout.LINE_END);
 
 		setVisible(true);
 	}

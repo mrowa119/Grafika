@@ -15,7 +15,7 @@ public class MenuPanel extends JPanel {
 		setLayout(new BorderLayout());
 		
 		add(new LoadImagePanel(), BorderLayout.NORTH);
-		add(new ShapeListPanel(), BorderLayout.CENTER);
+		add(new ListPanel(), BorderLayout.CENTER);
 		add(new ShapeSettingsPanel(), BorderLayout.SOUTH);
 	}
 }

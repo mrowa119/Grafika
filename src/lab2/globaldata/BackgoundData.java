@@ -22,10 +22,14 @@ public class BackgoundData {
 
 	private static void loadBackgounImageFromFile(File imageFile) {
 		try {
-			BackgoundData.BACKGORUND_IMAGE = ImageIO.read(imageFile);
+			BACKGORUND_IMAGE = ImageIO.read(imageFile);
 		} catch (IOException e) {
 			System.out.println("Image cannot be laoded");
 		}
+	}
+
+	public static boolean isBackgroundSet() {
+		return BACKGORUND_IMAGE != null;
 	}
 
 }

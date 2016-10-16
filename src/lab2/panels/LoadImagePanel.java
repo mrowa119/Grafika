@@ -13,8 +13,8 @@ public class LoadImagePanel extends JPanel {
 	public LoadImagePanel() {
 		super();
 		add(new LoadImageButton());
-		
+
 		Border centerBorder = BorderFactory.createTitledBorder("T³o");
-        setBorder(centerBorder);
+		setBorder(centerBorder);
 	}
 }

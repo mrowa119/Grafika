@@ -9,11 +9,11 @@ public class MenuPanel extends JPanel {
 
 	private static final long serialVersionUID = -2792018285384425322L;
 
-	public MenuPanel(){
+	public MenuPanel() {
 		super();
 		setBackground(Color.BLACK);
 		setLayout(new BorderLayout());
-		
+
 		add(new LoadImagePanel(), BorderLayout.NORTH);
 		add(new ListPanel(), BorderLayout.CENTER);
 		add(new ShapeSettingsPanel(), BorderLayout.SOUTH);

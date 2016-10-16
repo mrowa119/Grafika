@@ -15,7 +15,7 @@ public class ListButtonsPanel extends JPanel {
 	public ListButtonsPanel() {
 		super();
 		setLayout(new GridLayout(3, 1));
-		
+
 		add(new SaveListButton());
 		add(new LoadListButton());
 		add(new RemoveShapeButton());

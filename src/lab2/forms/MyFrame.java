@@ -6,6 +6,7 @@ import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 
+import lab2.globaldata.BackgoundData;
 import lab2.panels.ImagePanel;
 import lab2.panels.MenuPanel;
 
@@ -26,7 +27,8 @@ public class MyFrame extends JFrame {
 		setLayout(new BorderLayout());
 		
 		add(new MenuPanel(), BorderLayout.LINE_END);
-		add(new ImagePanel(), BorderLayout.CENTER);
+		BackgoundData.IMAGE_PANEL = new ImagePanel();
+		add(BackgoundData.IMAGE_PANEL, BorderLayout.CENTER);
 
 		setVisible(true);
 	}

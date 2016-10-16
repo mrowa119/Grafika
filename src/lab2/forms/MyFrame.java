@@ -6,6 +6,7 @@ import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 
+import lab2.panels.ImagePanel;
 import lab2.panels.MenuPanel;
 
 public class MyFrame extends JFrame {
@@ -25,6 +26,7 @@ public class MyFrame extends JFrame {
 		setLayout(new BorderLayout());
 		
 		add(new MenuPanel(), BorderLayout.LINE_END);
+		add(new ImagePanel(), BorderLayout.CENTER);
 
 		setVisible(true);
 	}

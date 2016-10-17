@@ -44,5 +44,10 @@ public class BackgoundData {
 	public static boolean haveShapes() {
 		return ! SHAPES_LIST.isEmpty();
 	}
+
+	public static void clearList() {
+		SHAPES_LIST.clear();
+		IMAGE_PANEL.repaint();
+	}
 	
 }

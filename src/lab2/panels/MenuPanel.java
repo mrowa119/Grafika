@@ -3,7 +3,9 @@ package lab2.panels;
 import java.awt.BorderLayout;
 import java.awt.Color;
 
+import javax.swing.BorderFactory;
 import javax.swing.JPanel;
+import javax.swing.border.Border;
 
 public class MenuPanel extends JPanel {
 
@@ -11,11 +13,14 @@ public class MenuPanel extends JPanel {
 
 	public MenuPanel() {
 		super();
-		setBackground(Color.BLACK);
 		setLayout(new BorderLayout());
 
 		add(new LoadImagePanel(), BorderLayout.NORTH);
 		add(new ListPanel(), BorderLayout.CENTER);
 		add(new ShapeSettingsPanel(), BorderLayout.SOUTH);
+		
+		
+		Border centerBorder = BorderFactory.createTitledBorder("Ustawienia");
+		setBorder(centerBorder);
 	}
 }

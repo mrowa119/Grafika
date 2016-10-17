@@ -9,9 +9,9 @@ public class ShapeSettingsPanel extends JPanel {
 
 	public ShapeSettingsPanel() {
 		super();
-
+		
 		setLayout(new BorderLayout());
-
+		
 		add(new ShapeChooserPanel(), BorderLayout.NORTH);
 		add(new ShapeColorPanel(), BorderLayout.SOUTH);
 	}

@@ -29,7 +29,6 @@ public class ImagePanel extends JPanel {
 	public ImagePanel() {
 		super();
 		setLayout(new GridLayout(1, 1));
-		setBackground(Color.GREEN);
 
 		this.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent e) {

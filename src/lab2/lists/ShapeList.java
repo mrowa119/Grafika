@@ -10,6 +10,6 @@ public class ShapeList extends JList<MyShape> {
 	private static final long serialVersionUID = 1251828228913881094L;
 
 	public ShapeList() {
-		super(BackgoundData.shapesList);
+		super(BackgoundData.SHAPES_LIST);
 	}
 }

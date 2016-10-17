@@ -62,9 +62,9 @@ public class ImagePanel extends JPanel {
 		paintBackgound(g);
 		g2.setStroke(new BasicStroke(LINE_THICKNESS));
 		
-		for (int i=0; i<BackgoundData.shapesList.size(); i++){
-			g2.setPaint(BackgoundData.shapesList.get(i).getPaint());
-			g2.draw(BackgoundData.shapesList.get(i).getShape());
+		for (int i=0; i<BackgoundData.SHAPES_LIST.size(); i++){
+			g2.setPaint(BackgoundData.SHAPES_LIST.get(i).getPaint());
+			g2.draw(BackgoundData.SHAPES_LIST.get(i).getShape());
 		}
 		
 		if(startDrag != null && endDrag != null){

@@ -14,7 +14,7 @@ import lab2.shapes.MyShape;
 public class BackgoundData {
 	public static Image BACKGORUND_IMAGE;
 	public static JPanel IMAGE_PANEL;
-	public static DefaultListModel<MyShape> shapesList = new DefaultListModel<MyShape>();
+	public static DefaultListModel<MyShape> SHAPES_LIST = new DefaultListModel<MyShape>();
 
 	public static void loadAndUpdateBackgroundImageFromFile(File imageFile) {
 		loadBackgounImageFromFile(imageFile);
@@ -38,7 +38,11 @@ public class BackgoundData {
 	}
 	
 	public static void addShape(Shape shape){
-		shapesList.addElement(new MyShape(CoursorData.RED_COURSOR, CoursorData.GREEN_COURSOR, CoursorData.BLUE_COURSOR, CoursorData.SHAPE_COURSOR, shape));
+		SHAPES_LIST.addElement(new MyShape(CoursorData.RED_COURSOR, CoursorData.GREEN_COURSOR, CoursorData.BLUE_COURSOR, CoursorData.SHAPE_COURSOR, shape));
+	}
+
+	public static boolean haveShapes() {
+		return ! SHAPES_LIST.isEmpty();
 	}
 	
 }

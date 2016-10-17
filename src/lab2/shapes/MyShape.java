@@ -2,9 +2,12 @@ package lab2.shapes;
 
 import java.awt.Color;
 import java.awt.Shape;
+import java.io.Serializable;
 
-public class MyShape {
+public class MyShape implements Serializable{
 
+	private static final long serialVersionUID = -9175294510109033402L;
+	
 	private int redColour;
 	private int greenColour;
 	private int blueColour;

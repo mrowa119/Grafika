@@ -6,12 +6,12 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import lab2.globaldata.BackgoundData;
+import lab2.shapes.MyShape;
 
 public class SaveListButton extends JButton {
 
@@ -42,7 +42,7 @@ public class SaveListButton extends JButton {
 			File selectedFile = fileChooser.getSelectedFile();
 			FileOutputStream fos;
 			try {
-				fos = new FileOutputStream(selectedFile.getPath() + ".dat");
+				fos = new FileOutputStream(selectedFile.getPath().replaceAll(".dat", "") + ".dat");
 				ObjectOutputStream oos = new ObjectOutputStream(fos);
 				oos.writeObject(BackgoundData.SHAPES_LIST);
 				oos.flush();

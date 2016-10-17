@@ -42,7 +42,7 @@ public class SaveListButton extends JButton {
 			File selectedFile = fileChooser.getSelectedFile();
 			FileOutputStream fos;
 			try {
-				fos = new FileOutputStream(selectedFile.getPath().replaceAll(".dat", "") + ".dat");
+				fos = new FileOutputStream(selectedFile.getPath().replace(".dat", "") + ".dat");
 				ObjectOutputStream oos = new ObjectOutputStream(fos);
 				oos.writeObject(BackgoundData.SHAPES_LIST);
 				oos.flush();
@@ -50,6 +50,7 @@ public class SaveListButton extends JButton {
 				fos.close();
 			} catch (IOException e) {
 				System.out.println("Cant save list");
+				System.out.println(e);
 			}
 
 		}

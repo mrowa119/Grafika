@@ -15,6 +15,7 @@ public class BackgoundData {
 	public static Image BACKGORUND_IMAGE;
 	public static JPanel IMAGE_PANEL;
 	public static DefaultListModel<MyShape> SHAPES_LIST = new DefaultListModel<MyShape>();
+	public static int SELECTED_SHAPE_ID = -1;
 
 	public static void loadAndUpdateBackgroundImageFromFile(File imageFile) {
 		loadBackgounImageFromFile(imageFile);
@@ -22,7 +23,7 @@ public class BackgoundData {
 	}
 
 	private static void updateImage() {
-		IMAGE_PANEL.repaint();
+		repaint();
 	}
 
 	private static void loadBackgounImageFromFile(File imageFile) {
@@ -47,6 +48,15 @@ public class BackgoundData {
 
 	public static void clearList() {
 		SHAPES_LIST.clear();
+		repaint();
+	}
+
+	public static void setSelectedShapeId(int selectedShapeId) {
+		SELECTED_SHAPE_ID = selectedShapeId;
+		repaint();
+	}
+	
+	private static void repaint() {
 		IMAGE_PANEL.repaint();
 	}
 	

@@ -21,6 +21,10 @@ import lab2.globaldata.CoursorData;
 public class ImagePanel extends JPanel {
 
 	private static final int LINE_THICKNESS = 3;
+	final static float dash1[] = { 10.0f };
+	final static BasicStroke normal = new BasicStroke(LINE_THICKNESS);
+	final static BasicStroke dashed = new BasicStroke(LINE_THICKNESS, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 10.0f, dash1,
+			0.0f);
 
 	private static final long serialVersionUID = 5275308904348754719L;
 
@@ -44,7 +48,7 @@ public class ImagePanel extends JPanel {
 				endDrag = null;
 				repaint();
 			}
-			
+
 		});
 
 		this.addMouseMotionListener(new MouseMotionAdapter() {
@@ -59,15 +63,20 @@ public class ImagePanel extends JPanel {
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D) g;
 		paintBackgound(g);
-		g2.setStroke(new BasicStroke(LINE_THICKNESS));
 		
 		for (int i=0; i<BackgoundData.SHAPES_LIST.size(); i++){
+			if(i==BackgoundData.SELECTED_SHAPE_ID){
+				g2.setStroke(dashed);
+			} else {
+				g2.setStroke(normal);
+			}
 			g2.setPaint(BackgoundData.SHAPES_LIST.get(i).getPaint());
 			g2.draw(BackgoundData.SHAPES_LIST.get(i).getShape());
 		}
 		
 		if(startDrag != null && endDrag != null){
 			g2.setPaint(CoursorData.getPaint());
+			g2.setStroke(normal);
 			Shape r = makeShape();
 			g2.draw(r);
 		}
@@ -90,13 +99,13 @@ public class ImagePanel extends JPanel {
 	private Rectangle2D.Float makeRectangle(int x1, int y1, int x2, int y2) {
 		return new Rectangle2D.Float(Math.min(x1, x2), Math.min(y1, y2), Math.abs(x1 - x2), Math.abs(y1 - y2));
 	}
-	
-	private Ellipse2D.Float makeElipse(int x1, int y1, int x2, int y2){
+
+	private Ellipse2D.Float makeElipse(int x1, int y1, int x2, int y2) {
 		return new Ellipse2D.Float(Math.min(x1, x2), Math.min(y1, y2), Math.abs(x1 - x2), Math.abs(y1 - y2));
 	}
-	
+
 	private Shape makeShape() {
-		if(CoursorData.SHAPE_COURSOR == 0){
+		if (CoursorData.SHAPE_COURSOR == 0) {
 			return makeRectangle(startDrag.x, startDrag.y, endDrag.x, endDrag.y);
 		} else {
 			return makeElipse(startDrag.x, startDrag.y, endDrag.x, endDrag.y);

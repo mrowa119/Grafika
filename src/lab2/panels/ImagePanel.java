@@ -9,7 +9,9 @@ import java.awt.Shape;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.awt.geom.Ellipse2D;
 import java.awt.geom.Rectangle2D;
+import java.awt.geom.Rectangle2D.Float;
 import java.awt.image.BufferedImage;
 
 import javax.swing.JPanel;
@@ -37,12 +39,13 @@ public class ImagePanel extends JPanel {
 			}
 
 			public void mouseReleased(MouseEvent e) {
-				Shape newShape = makeRectangle(startDrag.x, startDrag.y, endDrag.x, endDrag.y);
+				Shape newShape = makeShape();
 				BackgoundData.addShape(newShape);
 				startDrag = null;
 				endDrag = null;
 				repaint();
 			}
+			
 		});
 
 		this.addMouseMotionListener(new MouseMotionAdapter() {
@@ -66,7 +69,7 @@ public class ImagePanel extends JPanel {
 		
 		if(startDrag != null && endDrag != null){
 			g2.setPaint(CoursorData.getPaint());
-			Shape r = makeRectangle(startDrag.x, startDrag.y, endDrag.x, endDrag.y);
+			Shape r = makeShape();
 			g2.draw(r);
 		}
 	}
@@ -87,6 +90,18 @@ public class ImagePanel extends JPanel {
 
 	private Rectangle2D.Float makeRectangle(int x1, int y1, int x2, int y2) {
 		return new Rectangle2D.Float(Math.min(x1, x2), Math.min(y1, y2), Math.abs(x1 - x2), Math.abs(y1 - y2));
+	}
+	
+	private Ellipse2D.Float makeElipse(int x1, int y1, int x2, int y2){
+		return new Ellipse2D.Float(Math.min(x1, x2), Math.min(y1, y2), Math.abs(x1 - x2), Math.abs(y1 - y2));
+	}
+	
+	private Shape makeShape() {
+		if(CoursorData.SHAPE_COURSOR == 0){
+			return makeRectangle(startDrag.x, startDrag.y, endDrag.x, endDrag.y);
+		} else {
+			return makeElipse(startDrag.x, startDrag.y, endDrag.x, endDrag.y);
+		}
 	}
 
 }

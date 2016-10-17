@@ -12,7 +12,6 @@ public class MyShape {
 	private Shape shape;
 
 	
-	
 	public MyShape(int redColour, int greenColour, int blueColour, int shapeType, Shape shape) {
 		super();
 		this.redColour = redColour;

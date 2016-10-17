@@ -1,5 +1,6 @@
 package lab2.panels;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -16,9 +17,10 @@ import javax.swing.JPanel;
 
 import lab2.globaldata.BackgoundData;
 import lab2.globaldata.CoursorData;
-import lab2.shapes.MyShape;
 
 public class ImagePanel extends JPanel {
+
+	private static final int LINE_THICKNESS = 3;
 
 	private static final long serialVersionUID = 5275308904348754719L;
 
@@ -57,10 +59,11 @@ public class ImagePanel extends JPanel {
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D) g;
 		paintBackgound(g);
+		g2.setStroke(new BasicStroke(LINE_THICKNESS));
 		
-		for (MyShape s: BackgoundData.shapesList){
-			g2.setPaint(s.getPaint());
-			g2.draw(s.getShape());
+		for (int i=0; i<BackgoundData.shapesList.size(); i++){
+			g2.setPaint(BackgoundData.shapesList.get(i).getPaint());
+			g2.draw(BackgoundData.shapesList.get(i).getShape());
 		}
 		
 		if(startDrag != null && endDrag != null){

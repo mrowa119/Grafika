@@ -8,8 +8,6 @@ public class CoursorData {
 	public static int BLUE_COURSOR;
 	
 	public static int SHAPE_COURSOR;
-
-	
 	
 	
 	public static int getRGB() {

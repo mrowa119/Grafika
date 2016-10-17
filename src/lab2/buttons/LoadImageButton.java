@@ -39,9 +39,5 @@ public class LoadImageButton extends JButton {
 			BackgoundData.loadAndUpdateBackgroundImageFromFile(selectedFile);
 		}
 	}
-	//
-	// public File getSelectedFile() {
-	// return selectedFile;
-	// }
 
 }

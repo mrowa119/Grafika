@@ -6,12 +6,12 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import lab2.globaldata.BackgoundData;
-import lab2.shapes.MyShape;
 
 public class SaveListButton extends JButton {
 

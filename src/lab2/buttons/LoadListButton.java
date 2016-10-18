@@ -45,7 +45,7 @@ public class LoadListButton extends JButton {
 			try {
 				fis = new FileInputStream(selectedFile.getPath());
 		        ObjectInputStream ois = new ObjectInputStream(fis);
-		        BackgoundData.SHAPES_LIST = (DefaultListModel<MyShape>) ois.readObject();
+		        BackgoundData.addLoadedShapes((DefaultListModel<MyShape>) ois.readObject());
 		        ois.close();
 		        fis.close();
 		        repaint();

@@ -41,6 +41,13 @@ public class BackgoundData {
 	public static void addShape(Shape shape){
 		SHAPES_LIST.addElement(new MyShape(CoursorData.RED_COURSOR, CoursorData.GREEN_COURSOR, CoursorData.BLUE_COURSOR, CoursorData.SHAPE_COURSOR, shape));
 	}
+	
+
+	public static void addLoadedShapes(DefaultListModel<MyShape> readObject) {
+		for(int i=0; i<readObject.size();i++){
+			SHAPES_LIST.addElement(readObject.getElementAt(i));
+		}
+	}
 
 	public static boolean haveShapes() {
 		return ! SHAPES_LIST.isEmpty();
@@ -59,5 +66,6 @@ public class BackgoundData {
 	private static void repaint() {
 		IMAGE_PANEL.repaint();
 	}
+
 	
 }

@@ -2,6 +2,7 @@ package lab2.globaldata;
 
 import java.awt.Image;
 import java.awt.Shape;
+import java.awt.geom.Rectangle2D;
 import java.io.File;
 import java.io.IOException;
 
@@ -39,24 +40,25 @@ public class BackgoundData {
 	public static boolean isBackgroundSet() {
 		return BACKGORUND_IMAGE != null;
 	}
-	
-	public static void addShape(Shape shape){
-		SHAPES_LIST.addElement(new MyShape(CoursorData.RED_COURSOR, CoursorData.GREEN_COURSOR, CoursorData.BLUE_COURSOR, CoursorData.SHAPE_COURSOR, shape));
+
+	public static void addShape(Shape shape) {
+		SHAPES_LIST.addElement(new MyShape(CoursorData.RED_COURSOR, CoursorData.GREEN_COURSOR, CoursorData.BLUE_COURSOR,
+				CoursorData.SHAPE_COURSOR, shape));
 	}
-	
 
 	public static void addLoadedShapes(DefaultListModel<MyShape> readObject) {
-		for(int i=0; i<readObject.size();i++){
+		for (int i = 0; i < readObject.size(); i++) {
 			SHAPES_LIST.addElement(readObject.getElementAt(i));
 		}
 	}
 
 	public static boolean haveShapes() {
-		return ! SHAPES_LIST.isEmpty();
+		return !SHAPES_LIST.isEmpty();
 	}
 
 	public static void clearList() {
 		SHAPES_LIST.clear();
+		SELECTED_SHAPE_ID = -1;
 		repaint();
 	}
 
@@ -64,7 +66,7 @@ public class BackgoundData {
 		SELECTED_SHAPE_ID = selectedShapeId;
 		repaint();
 	}
-	
+
 	private static void repaint() {
 		IMAGE_PANEL.repaint();
 	}
@@ -75,5 +77,24 @@ public class BackgoundData {
 		repaint();
 	}
 
-	
+	public static boolean isSelected() {
+		return SELECTED_SHAPE_ID > -1;
+	}
+
+	public static MyShape getSelectedShape() {
+		if (isSelected()) {
+			return SHAPES_LIST.get(SELECTED_SHAPE_ID);
+		} else {
+			return null;
+		}
+	}
+
+	public static Rectangle2D[] getSelectedShapePoints() {
+		if (isSelected()) {
+			return getSelectedShape().getPoints();
+		} else {
+			return null;
+		}
+	}
+
 }

@@ -15,8 +15,8 @@ public class ShapeList extends JList<MyShape> {
 	public ShapeList() {
 		super(BackgoundData.SHAPES_LIST);
 		setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		ListSelectionModel listSelectionModel = getSelectionModel();
-		listSelectionModel.addListSelectionListener(new ListSelectionListener() {
+		BackgoundData.LIST_SELECTION_MODEL = getSelectionModel();
+		BackgoundData.LIST_SELECTION_MODEL.addListSelectionListener(new ListSelectionListener() {
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
 				if (e.getValueIsAdjusting()) {

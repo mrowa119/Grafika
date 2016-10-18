@@ -6,6 +6,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import lab2.lists.ShapeList;
+import labels.ShapeRender;
 
 public class ShapeListPanel extends JPanel {
 
@@ -14,6 +15,8 @@ public class ShapeListPanel extends JPanel {
 	public ShapeListPanel() {
 		super();
 		setLayout(new GridLayout(1, 1));
-		add(new JScrollPane(new ShapeList()));
+		ShapeList shapeList = new ShapeList();
+		shapeList.setCellRenderer(new ShapeRender());
+		add(new JScrollPane(shapeList));
 	}
 }

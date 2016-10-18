@@ -101,10 +101,12 @@ public class BackgoundData {
 	}
 
 	public static void removeShape() {
-		REMOVED_SHAPES.add(SHAPES_LIST.get(SELECTED_SHAPE_ID));
-		SHAPES_LIST.remove(SELECTED_SHAPE_ID);
-		SELECTED_SHAPE_ID = -1;
-		repaint();
+		if (isSelected()) {
+			REMOVED_SHAPES.add(SHAPES_LIST.get(SELECTED_SHAPE_ID));
+			SHAPES_LIST.remove(SELECTED_SHAPE_ID);
+			SELECTED_SHAPE_ID = -1;
+			repaint();
+		}
 	}
 
 }

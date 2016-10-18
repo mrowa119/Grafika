@@ -5,6 +5,7 @@ import java.awt.Shape;
 import java.awt.geom.Rectangle2D;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.DefaultListModel;
@@ -19,9 +20,11 @@ public class BackgoundData {
 	public static DefaultListModel<MyShape> SHAPES_LIST = new DefaultListModel<MyShape>();
 	public static int SELECTED_SHAPE_ID = -1;
 	public static ListSelectionModel LIST_SELECTION_MODEL;
+	public static ArrayList<MyShape> REMOVED_SHAPES = new ArrayList<MyShape>();
 
 	public static void loadAndUpdateBackgroundImageFromFile(File imageFile) {
 		loadBackgounImageFromFile(imageFile);
+		REMOVED_SHAPES.clear();
 		updateImage();
 	}
 
@@ -95,6 +98,13 @@ public class BackgoundData {
 		} else {
 			return null;
 		}
+	}
+
+	public static void removeShape() {
+		REMOVED_SHAPES.add(SHAPES_LIST.get(SELECTED_SHAPE_ID));
+		SHAPES_LIST.remove(SELECTED_SHAPE_ID);
+		SELECTED_SHAPE_ID = -1;
+		repaint();
 	}
 
 }

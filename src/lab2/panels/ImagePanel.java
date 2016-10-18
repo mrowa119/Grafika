@@ -1,6 +1,9 @@
 package lab2.panels;
 
+import java.awt.AlphaComposite;
 import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.Composite;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.GridLayout;
@@ -81,7 +84,8 @@ public class ImagePanel extends JPanel {
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D) g;
-		paintBackgound(g);
+		paintBackgound(g2);
+		removeShapes(g2);
 
 		for (int i = 0; i < BackgoundData.SHAPES_LIST.size(); i++) {
 			MyShape shape = BackgoundData.SHAPES_LIST.get(i);
@@ -104,17 +108,22 @@ public class ImagePanel extends JPanel {
 		}
 	}
 
-	private void paintBackgound(Graphics g) {
+	private void removeShapes(Graphics2D g) {
+		for(MyShape myShape: BackgoundData.REMOVED_SHAPES){
+			g.setPaint(this.getBackground());
+			g.fill(myShape.getShape());
+		}
+	}
+
+	private void paintBackgound(Graphics2D g) {
 		if (BackgoundData.isBackgroundSet()) {
-			Graphics2D g2d = (Graphics2D) g.create();
 			int tileWidth = ((BufferedImage) BackgoundData.BACKGORUND_IMAGE).getWidth();
 			int tileHeight = ((BufferedImage) BackgoundData.BACKGORUND_IMAGE).getHeight();
 			for (int y = 0; y < getHeight(); y += tileHeight) {
 				for (int x = 0; x < getWidth(); x += tileWidth) {
-					g2d.drawImage(BackgoundData.BACKGORUND_IMAGE, x, y, this);
+					g.drawImage(BackgoundData.BACKGORUND_IMAGE, x, y, this);
 				}
 			}
-			g2d.dispose();
 		}
 	}
 

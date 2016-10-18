@@ -12,7 +12,6 @@ public class AcceptColorButton extends JButton {
 
 	private static final long serialVersionUID = 7690089614652881027L;
 
-
 	public AcceptColorButton(JSpinner redSpinner, JSpinner greenSpinner, JSpinner blueSpinner) {
 		super("Akceptuj kolor");
 

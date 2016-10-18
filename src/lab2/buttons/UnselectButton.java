@@ -13,9 +13,9 @@ public class UnselectButton extends JButton {
 
 	public UnselectButton() {
 		super("Odznacz");
-		
+
 		addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				buttonClicked();

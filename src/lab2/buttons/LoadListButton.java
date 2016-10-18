@@ -21,9 +21,9 @@ public class LoadListButton extends JButton {
 
 	public LoadListButton() {
 		super("Wczytaj listê");
-		
+
 		addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				buttonClicked();
@@ -41,14 +41,14 @@ public class LoadListButton extends JButton {
 		if (result == JFileChooser.APPROVE_OPTION) {
 			BackgoundData.clearList();
 			File selectedFile = fileChooser.getSelectedFile();
-			FileInputStream  fis ;
+			FileInputStream fis;
 			try {
 				fis = new FileInputStream(selectedFile.getPath());
-		        ObjectInputStream ois = new ObjectInputStream(fis);
-		        BackgoundData.addLoadedShapes((DefaultListModel<MyShape>) ois.readObject());
-		        ois.close();
-		        fis.close();
-		        repaint();
+				ObjectInputStream ois = new ObjectInputStream(fis);
+				BackgoundData.addLoadedShapes((DefaultListModel<MyShape>) ois.readObject());
+				ois.close();
+				fis.close();
+				repaint();
 			} catch (IOException | ClassNotFoundException e) {
 				System.out.println("Cant load list");
 				System.out.println(e);

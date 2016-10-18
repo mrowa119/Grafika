@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import lab2.buttons.LoadListButton;
 import lab2.buttons.RemoveShapeButton;
 import lab2.buttons.SaveListButton;
+import lab2.buttons.UnselectButton;
 
 public class ListButtonsPanel extends JPanel {
 
@@ -14,8 +15,9 @@ public class ListButtonsPanel extends JPanel {
 
 	public ListButtonsPanel() {
 		super();
-		setLayout(new GridLayout(3, 1));
+		setLayout(new GridLayout(4, 1));
 
+		add(new UnselectButton());
 		add(new SaveListButton());
 		add(new LoadListButton());
 		add(new RemoveShapeButton());

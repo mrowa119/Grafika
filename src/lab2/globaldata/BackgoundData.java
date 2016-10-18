@@ -8,6 +8,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.DefaultListModel;
 import javax.swing.JPanel;
+import javax.swing.ListSelectionModel;
 
 import lab2.shapes.MyShape;
 
@@ -16,6 +17,7 @@ public class BackgoundData {
 	public static JPanel IMAGE_PANEL;
 	public static DefaultListModel<MyShape> SHAPES_LIST = new DefaultListModel<MyShape>();
 	public static int SELECTED_SHAPE_ID = -1;
+	public static ListSelectionModel LIST_SELECTION_MODEL;
 
 	public static void loadAndUpdateBackgroundImageFromFile(File imageFile) {
 		loadBackgounImageFromFile(imageFile);
@@ -65,6 +67,12 @@ public class BackgoundData {
 	
 	private static void repaint() {
 		IMAGE_PANEL.repaint();
+	}
+
+	public static void unselect() {
+		SELECTED_SHAPE_ID = -1;
+		LIST_SELECTION_MODEL.clearSelection();
+		repaint();
 	}
 
 	

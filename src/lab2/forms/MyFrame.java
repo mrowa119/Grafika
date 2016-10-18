@@ -14,13 +14,15 @@ public class MyFrame extends JFrame {
 
 	private static final long serialVersionUID = -7647936535225394088L;
 
-	public final static int MINIMUM_FRAME_WIDTH = 800;
-	public final static int MINIMUM_FEMAE_HEIGHT = 600;
+	public final static int FRAME_WIDTH = 800;
+	public final static int FEMAE_HEIGHT = 600;
+	public final static int MINIMAL_FRAME_WIDTH = 350;
+	public final static int MINIMAL_FEMAE_HEIGHT = 460;
 
 	public MyFrame() {
 		super("Zaznaczanie ");
-		setSize(MINIMUM_FRAME_WIDTH, MINIMUM_FEMAE_HEIGHT);
-		setMinimumSize(new Dimension(350, 420));
+		setSize(FRAME_WIDTH, FEMAE_HEIGHT);
+		setMinimumSize(new Dimension(MINIMAL_FRAME_WIDTH, MINIMAL_FEMAE_HEIGHT));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setOnScreenCenter();
 		

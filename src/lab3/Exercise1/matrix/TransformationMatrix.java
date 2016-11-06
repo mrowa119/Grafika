@@ -34,6 +34,17 @@ public class TransformationMatrix {
 		multipleMatrix(scaleMatrix);
 	}
 
+	public void addRotation(double degrees) {
+		degrees %= 360;
+		double radians = Math.toRadians(degrees);
+		System.out.println(radians);
+		RotationMatrix rotationMatrix = new RotationMatrix(radians);
+		System.out.println(this);
+		System.out.println(rotationMatrix);
+		multipleMatrix(rotationMatrix);
+		System.out.println(this);
+	}
+
 	private void multipleMatrix(TransformationMatrix b) {
 		TransformationMatrix a = new TransformationMatrix(this);
 		for (int i = 0; i < transformationMatrix.length; i++) {
@@ -45,9 +56,9 @@ public class TransformationMatrix {
 				transformationMatrix[i][j] = tmp;
 			}
 		}
-		
+
 	}
-	
+
 	public String toString() {
 		String result = "";
 		for (int i = 0; i < transformationMatrix.length; i++) {
@@ -57,17 +68,26 @@ public class TransformationMatrix {
 	}
 
 	public Point getTransformedPoint(Point point) {
-		int[] a = new int[]{(int) point.getX(), (int) point.getY(), 1};
+		int[] a = new int[] { (int) point.getX(), (int) point.getY(), 1 };
 		int[] result = new int[3];
-		for(int i=0;i<transformationMatrix[0].length;i++){
+		for (int i = 0; i < transformationMatrix[0].length; i++) {
 			int tmp = 0;
-			for(int j=0;j<a.length;j++){
-				tmp+=a[j]*getValue(j, i);
+			for (int j = 0; j < a.length; j++) {
+				tmp += a[j] * getValue(j, i);
 			}
-			result[i]=tmp;
+			result[i] = tmp;
 		}
-		System.out.println(point.getX()+"\t"+point.getY()+"\t"+Arrays.toString(result));
 		return new Point(result[0], result[1]);
+	}
+
+	public void doTransformation(String[] transformation) {
+		if (transformation[0].equals("move")) {
+			addMove(Integer.parseInt(transformation[1]), Integer.parseInt(transformation[2]));
+		} else if (transformation[0].equals("scale")) {
+			addScale(Integer.parseInt(transformation[1]), Integer.parseInt(transformation[2]));
+		} else if (transformation[0].equals("rotation")) {
+			addRotation(Double.parseDouble(transformation[1]));
+		}
 	}
 
 }

@@ -15,10 +15,10 @@ public class Main {
 	static int TEMP_MAX_Y = 50;
 
 	private final static String polygonsFileName = "polygons.txt";
+	private final static String transformationFileName = "transformation.txt";
 
 	public static void main(String[] args) {
-		
-		
+
 		TransformationMatrix transformationMatrix = crateMatrixBasedOnFile();
 
 		CartesianPolygon[] primaryPolygons = loadPolygonsFromFile();
@@ -42,9 +42,17 @@ public class Main {
 
 	private static TransformationMatrix crateMatrixBasedOnFile() {
 		TransformationMatrix transformationMatrix = new TransformationMatrix();
-		transformationMatrix.addMove(0, -20);
-		transformationMatrix.addScale(1, 2);
-		transformationMatrix.addMove(1, 20);
+		File file = new File(transformationFileName);
+		try {
+			Scanner in = new Scanner(file);
+			int transformationLength = Integer.parseInt(in.nextLine());
+			for (int i = 0; i < transformationLength; i++) {
+				transformationMatrix.doTransformation(in.nextLine().split(" "));
+			}
+			in.close();
+		} catch (FileNotFoundException e) {
+			System.out.println("Error, File stored in " + file.getAbsolutePath() + " can't be loaded.");
+		}
 		return transformationMatrix;
 	}
 
@@ -67,14 +75,13 @@ public class Main {
 			in.close();
 			return polygons;
 		} catch (FileNotFoundException e) {
-			System.out.println(e);
 			System.out.println("Error, File stored in " + file.getAbsolutePath() + " can't be loaded.");
 		} catch (WrongNumberCoordinates e) {
 			System.out.println("Error, File stored in " + file.getAbsolutePath() + " has wrong number of coordinates.");
 		}
 		return new CartesianPolygon[0];
 	}
-	
+
 	private static Cartesian creantCartesianBoard(CartesianPolygon[] primaryPolygons, CartesianPolygon[] newPolygon) {
 		int minX = Math.min(getMinXFromPolygons(primaryPolygons), getMinXFromPolygons(newPolygon));
 		int maxX = Math.max(getMaxXFromPolygons(primaryPolygons), getMaxXFromPolygons(newPolygon));
@@ -88,7 +95,7 @@ public class Main {
 
 	private static int getMaxYFromPolygons(CartesianPolygon[] polygons) {
 		int[] y = new int[polygons.length];
-		for(int i=0;i<polygons.length;i++){
+		for (int i = 0; i < polygons.length; i++) {
 			y[i] = polygons[i].getMaxY();
 		}
 		return Tools.getMax(y);
@@ -96,7 +103,7 @@ public class Main {
 
 	private static int getMinYFromPolygons(CartesianPolygon[] polygons) {
 		int[] y = new int[polygons.length];
-		for(int i=0;i<polygons.length;i++){
+		for (int i = 0; i < polygons.length; i++) {
 			y[i] = polygons[i].getMinY();
 		}
 		return Tools.getMin(y);
@@ -104,7 +111,7 @@ public class Main {
 
 	private static int getMaxXFromPolygons(CartesianPolygon[] polygons) {
 		int[] x = new int[polygons.length];
-		for(int i=0;i<polygons.length;i++){
+		for (int i = 0; i < polygons.length; i++) {
 			x[i] = polygons[i].getMaxX();
 		}
 		return Tools.getMax(x);
@@ -112,7 +119,7 @@ public class Main {
 
 	private static int getMinXFromPolygons(CartesianPolygon[] polygons) {
 		int[] x = new int[polygons.length];
-		for(int i=0;i<polygons.length;i++){
+		for (int i = 0; i < polygons.length; i++) {
 			x[i] = polygons[i].getMinX();
 		}
 		return Tools.getMin(x);

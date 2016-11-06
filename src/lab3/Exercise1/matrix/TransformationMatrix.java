@@ -1,5 +1,6 @@
 package lab3.Exercise1.matrix;
 
+import java.awt.Point;
 import java.util.Arrays;
 
 public class TransformationMatrix {
@@ -44,9 +45,9 @@ public class TransformationMatrix {
 				transformationMatrix[i][j] = tmp;
 			}
 		}
-		System.out.println(this);
+		
 	}
-
+	
 	public String toString() {
 		String result = "";
 		for (int i = 0; i < transformationMatrix.length; i++) {
@@ -54,4 +55,19 @@ public class TransformationMatrix {
 		}
 		return result;
 	}
+
+	public Point getTransformedPoint(Point point) {
+		int[] a = new int[]{(int) point.getX(), (int) point.getY(), 1};
+		int[] result = new int[3];
+		for(int i=0;i<transformationMatrix[0].length;i++){
+			int tmp = 0;
+			for(int j=0;j<a.length;j++){
+				tmp+=a[j]*getValue(j, i);
+			}
+			result[i]=tmp;
+		}
+		System.out.println(point.getX()+"\t"+point.getY()+"\t"+Arrays.toString(result));
+		return new Point(result[0], result[1]);
+	}
+
 }

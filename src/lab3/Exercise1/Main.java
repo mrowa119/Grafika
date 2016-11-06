@@ -1,5 +1,6 @@
 package lab3.Exercise1;
 
+import java.awt.Color;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -16,15 +17,40 @@ public class Main {
 	private final static String polygonsFileName = "polygons.txt";
 
 	public static void main(String[] args) {
-		int width = Cartesian.getDimmension(TEMP_MIN_X, TEMP_MAX_X);
-		int height = Cartesian.getDimmension(TEMP_MIN_Y, TEMP_MAX_Y);
-		Cartesian cartesian = new Cartesian(width, height);
-		cartesian.drawPolygons(loadPolygonsFromFile());
+		
+		
+		TransformationMatrix transformationMatrix = crateMatrixBasedOnFile();
+
+		CartesianPolygon[] primaryPolygons = loadPolygonsFromFile();
+		CartesianPolygon[] newPolygon = calculateNewPolygons(transformationMatrix, primaryPolygons);
+
+		Cartesian cartesian = creantCartesianBoard(primaryPolygons, newPolygon);
+		cartesian.drawPolygons(primaryPolygons, Color.RED);
+		cartesian.drawPolygons(newPolygon, Color.BLUE);
 		cartesian.saveToFile();
 
-		TransformationMatrix mat = new TransformationMatrix();
-		mat.addMove(5, 6);
-		mat.addScale(-7, 3);
+	}
+
+	private static CartesianPolygon[] calculateNewPolygons(TransformationMatrix transformationMatrix,
+			CartesianPolygon[] primaryPolygons) {
+		CartesianPolygon[] newPolygon = new CartesianPolygon[primaryPolygons.length];
+		for (int i = 0; i < primaryPolygons.length; i++) {
+			newPolygon[i] = creatTransforatedPolygon(primaryPolygons[i], transformationMatrix);
+		}
+		return newPolygon;
+	}
+
+	private static TransformationMatrix crateMatrixBasedOnFile() {
+		TransformationMatrix transformationMatrix = new TransformationMatrix();
+		transformationMatrix.addMove(0, -20);
+		transformationMatrix.addScale(1, 2);
+		transformationMatrix.addMove(1, 20);
+		return transformationMatrix;
+	}
+
+	private static CartesianPolygon creatTransforatedPolygon(CartesianPolygon cartesianPolygon,
+			TransformationMatrix transformationMatrix) {
+		return new CartesianPolygon(cartesianPolygon, transformationMatrix);
 	}
 
 	private static CartesianPolygon[] loadPolygonsFromFile() {
@@ -47,6 +73,49 @@ public class Main {
 			System.out.println("Error, File stored in " + file.getAbsolutePath() + " has wrong number of coordinates.");
 		}
 		return new CartesianPolygon[0];
+	}
+	
+	private static Cartesian creantCartesianBoard(CartesianPolygon[] primaryPolygons, CartesianPolygon[] newPolygon) {
+		int minX = Math.min(getMinXFromPolygons(primaryPolygons), getMinXFromPolygons(newPolygon));
+		int maxX = Math.max(getMaxXFromPolygons(primaryPolygons), getMaxXFromPolygons(newPolygon));
+		int minY = Math.min(getMinYFromPolygons(primaryPolygons), getMinYFromPolygons(newPolygon));
+		int maxY = Math.max(getMaxYFromPolygons(primaryPolygons), getMaxYFromPolygons(newPolygon));
+		int width = Cartesian.getDimmension(minX, maxX);
+		int height = Cartesian.getDimmension(minY, maxY);
+		Cartesian cartesian = new Cartesian(width, height);
+		return cartesian;
+	}
+
+	private static int getMaxYFromPolygons(CartesianPolygon[] polygons) {
+		int[] y = new int[polygons.length];
+		for(int i=0;i<polygons.length;i++){
+			y[i] = polygons[i].getMaxY();
+		}
+		return Tools.getMax(y);
+	}
+
+	private static int getMinYFromPolygons(CartesianPolygon[] polygons) {
+		int[] y = new int[polygons.length];
+		for(int i=0;i<polygons.length;i++){
+			y[i] = polygons[i].getMinY();
+		}
+		return Tools.getMin(y);
+	}
+
+	private static int getMaxXFromPolygons(CartesianPolygon[] polygons) {
+		int[] x = new int[polygons.length];
+		for(int i=0;i<polygons.length;i++){
+			x[i] = polygons[i].getMaxX();
+		}
+		return Tools.getMax(x);
+	}
+
+	private static int getMinXFromPolygons(CartesianPolygon[] polygons) {
+		int[] x = new int[polygons.length];
+		for(int i=0;i<polygons.length;i++){
+			x[i] = polygons[i].getMinX();
+		}
+		return Tools.getMin(x);
 	}
 
 }

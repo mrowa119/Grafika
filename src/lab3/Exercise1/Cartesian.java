@@ -58,18 +58,18 @@ public class Cartesian extends BufferedImage {
 	}
 
 	public static int getDimmension(int min, int max) {
-		return 2 * Math.max(Math.abs(min), Math.abs(max)) + 1;
+		return 2 * Math.max(Math.abs(min), Math.abs(max)) + 11;
 	}
 
-	public void drawPolygons(CartesianPolygon[] polygons) {
+	public void drawPolygons(CartesianPolygon[] polygons, Color color) {
 		for (int i = 0; i < polygons.length; i++) {
-			drawPolygon(polygons[i]);
+			drawPolygon(polygons[i], color);
 		}
 	}
 
-	private void drawPolygon(CartesianPolygon polygon) {
+	private void drawPolygon(CartesianPolygon polygon, Color color) {
 		Graphics2D g2 = createGraphics();
-		g2.setColor(Color.RED);
+		g2.setColor(color);
 		polygon.updatePoints(getMiddlePoint());
 		g2.draw(polygon);
 		g2.dispose();

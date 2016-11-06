@@ -16,4 +16,17 @@ public class CartesianPolygon extends Polygon {
 
 	}
 
+	public void addPoints(String[] coordinates) throws WrongNumberCoordinates {
+		if (coordinates.length % 2 == 1) {
+			throw new WrongNumberCoordinates();
+		}
+		for (int i = 0; i < coordinates.length; i += 2) {
+			addPoint(coordinates[i], coordinates[i + 1]);
+		}
+	}
+
+	private void addPoint(String x, String y) {
+		addPoint(Integer.parseInt(x), Integer.parseInt(y));
+	}
+
 }

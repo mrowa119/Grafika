@@ -1,7 +1,8 @@
 package lab3.Exercise1;
 
 import java.awt.Color;
-import java.awt.Polygon;
+import java.awt.Graphics2D;
+import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -26,7 +27,7 @@ public class Cartesian extends BufferedImage {
 			setColour(i, middleX, Color.BLACK);
 		}
 	}
-	
+
 	private void createAxisY() {
 		int middleY = getWidth() / 2;
 		for (int i = 0; i < getHeight(); i++) {
@@ -60,9 +61,21 @@ public class Cartesian extends BufferedImage {
 		return 2 * Math.max(Math.abs(min), Math.abs(max)) + 1;
 	}
 
-	public void drawPolygon(Polygon[] polygons) {
-		for(int i=0; i<polygons.length; i++){
-			
+	public void drawPolygons(CartesianPolygon[] polygons) {
+		for (int i = 0; i < polygons.length; i++) {
+			drawPolygon(polygons[i]);
 		}
+	}
+
+	private void drawPolygon(CartesianPolygon polygon) {
+		Graphics2D g2 = createGraphics();
+		g2.setColor(Color.RED);
+		polygon.updatePoints(getMiddlePoint());
+		g2.draw(polygon);
+		g2.dispose();
+	}
+
+	private Point getMiddlePoint() {
+		return new Point(getWidth() / 2, getHeight() / 2);
 	}
 }

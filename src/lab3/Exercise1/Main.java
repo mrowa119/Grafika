@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+import lab3.Exercise1.matrix.TransformationMatrix;
+
 public class Main {
 
 	static int TEMP_MIN_X = -50;
@@ -19,6 +21,10 @@ public class Main {
 		Cartesian cartesian = new Cartesian(width, height);
 		cartesian.drawPolygons(loadPolygonsFromFile());
 		cartesian.saveToFile();
+
+		TransformationMatrix mat = new TransformationMatrix();
+		mat.addMove(5, 6);
+		mat.addScale(-7, 3);
 	}
 
 	private static CartesianPolygon[] loadPolygonsFromFile() {

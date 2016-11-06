@@ -5,8 +5,8 @@ import java.awt.GridLayout;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+import lab2.labels.ShapeRender;
 import lab2.lists.ShapeList;
-import labels.ShapeRender;
 
 public class ShapeListPanel extends JPanel {
 

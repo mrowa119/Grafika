@@ -8,12 +8,7 @@ import java.util.Scanner;
 import lab3.Exercise1.matrix.TransformationMatrix;
 
 public class Main {
-
-	static int TEMP_MIN_X = -50;
-	static int TEMP_MAX_X = 100;
-	static int TEMP_MIN_Y = -100;
-	static int TEMP_MAX_Y = 50;
-
+	
 	private final static String polygonsFileName = "polygons.txt";
 	private final static String transformationFileName = "transformation.txt";
 

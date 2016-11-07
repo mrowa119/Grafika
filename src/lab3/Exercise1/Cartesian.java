@@ -13,7 +13,8 @@ public class Cartesian extends BufferedImage {
 
 	private final String outputFileName = "Cartesian.bmp";
 	private final String outputFileFormat = "bmp";
-
+	
+	
 	public Cartesian(int width, int height) {
 		super(width, height, BufferedImage.TYPE_INT_RGB);
 		setBacground(Color.white);
@@ -50,7 +51,7 @@ public class Cartesian extends BufferedImage {
 	protected void saveToFile() {
 		try {
 			File outputFile = new File(outputFileName);
-			ImageIO.write(this, outputFileFormat, outputFile);
+			ImageIO.write(new FinalCartesian(this), outputFileFormat, outputFile);
 			System.out.println("Succes. Image stored in " + outputFile.getAbsolutePath());
 		} catch (IOException e) {
 			System.out.println("Image cannot be stored");

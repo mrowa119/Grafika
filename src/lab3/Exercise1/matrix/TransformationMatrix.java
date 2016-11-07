@@ -37,12 +37,8 @@ public class TransformationMatrix {
 	public void addRotation(double degrees) {
 		degrees %= 360;
 		double radians = Math.toRadians(degrees);
-		System.out.println(radians);
 		RotationMatrix rotationMatrix = new RotationMatrix(radians);
-		System.out.println(this);
-		System.out.println(rotationMatrix);
 		multipleMatrix(rotationMatrix);
-		System.out.println(this);
 	}
 
 	private void multipleMatrix(TransformationMatrix b) {

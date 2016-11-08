@@ -1,5 +1,6 @@
 package lab3.Exercise6;
 
+import java.awt.Point;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
@@ -49,7 +50,7 @@ public class TransformationMatrix {
 		}
 	}
 
-	private TransformationMatrix getInvert() throws MatrixDetIs0 {
+	public TransformationMatrix getInverted() throws MatrixDetIs0 {
 		if (getDet() != 0) {
 			Macierz macierz = new Macierz(transformationMatrix);
 			return new TransformationMatrix(macierz.wyznaczMacierzOdwrotna().getTablice());
@@ -66,6 +67,19 @@ public class TransformationMatrix {
 
 	private double getValue(int i, int j) {
 		return transformationMatrix[i][j];
+	}
+	
+	public double[] getTransformedPoint(double[] point) {
+		double[] a = new double[]{point[0], point[1], 1.0};
+		double[] result = new double[3];
+		for (int i = 0; i < transformationMatrix[0].length; i++) {
+			double tmp = 0;
+			for (int j = 0; j < a.length; j++) {
+				tmp += a[j] * getValue(j, i);
+			}
+			result[i] = tmp;
+		}
+		return result;
 	}
 
 	public String toString() {

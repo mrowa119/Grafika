@@ -9,8 +9,10 @@ import lab3.Exercise4.matrix.TransformationMatrix;
 
 public class Main {
 	
-	private final static String polygonsFileName = "polygons.txt";
-	private final static String transformationFileName = "transformation.txt";
+	final static String RESOURCE_PREFIX = "res\\l3_e4\\";
+	
+	private final static String polygonsFileName = RESOURCE_PREFIX + "polygons.txt";
+	private final static String transformationFileName = RESOURCE_PREFIX + "transformation.txt";
 
 	public static void main(String[] args) {
 

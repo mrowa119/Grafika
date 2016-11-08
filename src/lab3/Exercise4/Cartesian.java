@@ -11,7 +11,7 @@ import javax.imageio.ImageIO;
 
 public class Cartesian extends BufferedImage {
 
-	private final String outputFileName = "Cartesian.bmp";
+	private final String outputFileName = Main.RESOURCE_PREFIX +  "Cartesian.bmp";
 	private final String outputFileFormat = "bmp";
 	
 	

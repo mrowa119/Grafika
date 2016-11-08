@@ -1,6 +1,5 @@
 package lab3.Exercise6;
 
-import java.awt.Point;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Arrays;

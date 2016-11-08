@@ -1,0 +1,7 @@
+6
+rotation -90
+rotation 90
+move 0 -20
+scale 2 2
+rotation 30
+move -60 20

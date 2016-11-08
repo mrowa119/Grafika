@@ -46,7 +46,7 @@ public class CartesianPolygon extends Polygon {
 	private Point getPoint(int i) {
 		return new Point(xpoints[i], ypoints[i]);
 	}
-	
+
 	private int getNumbersOfPoints() {
 		return npoints;
 	}

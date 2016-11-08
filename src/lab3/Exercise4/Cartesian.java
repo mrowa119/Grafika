@@ -11,13 +11,15 @@ import javax.imageio.ImageIO;
 
 public class Cartesian extends BufferedImage {
 
-	private final String outputFileName = Main.RESOURCE_PREFIX +  "Cartesian.bmp";
-	private final String outputFileFormat = "bmp";
-	
-	
+	private static final String OUTPUT_FILE_NAME = Main.RESOURCE_PREFIX + "Cartesian.bmp";
+	private static final String OUTPUT_FILE_FORMAT = "bmp";
+
+	private static final Color BACKGROUND_COLOR = Color.white;
+	private static final Color AXIS_COLOR = Color.BLACK;
+
 	public Cartesian(int width, int height) {
 		super(width, height, BufferedImage.TYPE_INT_RGB);
-		setBacground(Color.white);
+		setBacground(BACKGROUND_COLOR);
 		createAxisX();
 		createAxisY();
 	}
@@ -25,14 +27,14 @@ public class Cartesian extends BufferedImage {
 	private void createAxisX() {
 		int middleX = getHeight() / 2;
 		for (int i = 0; i < getWidth(); i++) {
-			setColour(i, middleX, Color.BLACK);
+			setColour(i, middleX, AXIS_COLOR);
 		}
 	}
 
 	private void createAxisY() {
 		int middleY = getWidth() / 2;
 		for (int i = 0; i < getHeight(); i++) {
-			setColour(middleY, i, Color.BLACK);
+			setColour(middleY, i, AXIS_COLOR);
 		}
 	}
 
@@ -50,8 +52,8 @@ public class Cartesian extends BufferedImage {
 
 	protected void saveToFile() {
 		try {
-			File outputFile = new File(outputFileName);
-			ImageIO.write(new FinalCartesian(this), outputFileFormat, outputFile);
+			File outputFile = new File(OUTPUT_FILE_NAME);
+			ImageIO.write(new FinalCartesian(this), OUTPUT_FILE_FORMAT, outputFile);
 			System.out.println("Succes. Image stored in " + outputFile.getAbsolutePath());
 		} catch (IOException e) {
 			System.out.println("Image cannot be stored");

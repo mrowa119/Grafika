@@ -8,11 +8,11 @@ import java.util.Scanner;
 import lab3.Exercise4.matrix.TransformationMatrix;
 
 public class Main {
-	
+
 	final static String RESOURCE_PREFIX = "res\\l3_e4\\";
-	
-	private final static String polygonsFileName = RESOURCE_PREFIX + "polygons.txt";
-	private final static String transformationFileName = RESOURCE_PREFIX + "transformation.txt";
+
+	private final static String POLYGONS_FILE_NAME = RESOURCE_PREFIX + "polygons.txt";
+	private final static String TRANSFORMATION_FILE_NAME = RESOURCE_PREFIX + "transformation.txt";
 
 	public static void main(String[] args) {
 
@@ -39,7 +39,7 @@ public class Main {
 
 	private static TransformationMatrix crateMatrixBasedOnFile() {
 		TransformationMatrix transformationMatrix = new TransformationMatrix();
-		File file = new File(transformationFileName);
+		File file = new File(TRANSFORMATION_FILE_NAME);
 		try {
 			Scanner in = new Scanner(file);
 			int transformationLength = Integer.parseInt(in.nextLine());
@@ -59,7 +59,7 @@ public class Main {
 	}
 
 	private static CartesianPolygon[] loadPolygonsFromFile() {
-		File file = new File(polygonsFileName);
+		File file = new File(POLYGONS_FILE_NAME);
 		try {
 			Scanner in = new Scanner(file);
 			int polygonsLength = Integer.parseInt(in.nextLine());

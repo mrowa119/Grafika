@@ -1,4 +1,4 @@
-package lab3.Exercise1.matrix;
+package lab3.Exercise4.matrix;
 
 public class RotationMatrix extends TransformationMatrix {
 	public RotationMatrix(double radians) {

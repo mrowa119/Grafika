@@ -1,11 +1,11 @@
-package lab3.Exercise1;
+package lab3.Exercise4;
 
 import java.awt.Color;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-import lab3.Exercise1.matrix.TransformationMatrix;
+import lab3.Exercise4.matrix.TransformationMatrix;
 
 public class Main {
 	

@@ -1,4 +1,4 @@
-package lab3.Exercise1.matrix;
+package lab3.Exercise4.matrix;
 
 import java.awt.Point;
 import java.util.Arrays;

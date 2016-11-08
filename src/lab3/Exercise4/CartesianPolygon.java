@@ -1,9 +1,9 @@
-package lab3.Exercise1;
+package lab3.Exercise4;
 
 import java.awt.Point;
 import java.awt.Polygon;
 
-import lab3.Exercise1.matrix.TransformationMatrix;
+import lab3.Exercise4.matrix.TransformationMatrix;
 
 public class CartesianPolygon extends Polygon {
 

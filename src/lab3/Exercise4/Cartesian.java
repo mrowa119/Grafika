@@ -1,4 +1,4 @@
-package lab3.Exercise1;
+package lab3.Exercise4;
 
 import java.awt.Color;
 import java.awt.Graphics2D;

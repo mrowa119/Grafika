@@ -1,4 +1,4 @@
-package lab3.Exercise1.matrix;
+package lab3.Exercise4.matrix;
 
 public class MoveMatrix extends TransformationMatrix {
 	public MoveMatrix(double x, double y) {

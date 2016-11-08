@@ -1,4 +1,4 @@
-package lab3.Exercise1;
+package lab3.Exercise4;
 
 public class FinalCartesian extends Cartesian {
 

@@ -1,4 +1,4 @@
-package lab3.Exercise1.matrix;
+package lab3.Exercise4.matrix;
 
 public class ScaleMatrix extends TransformationMatrix {
 	public ScaleMatrix(double x, double y) {
